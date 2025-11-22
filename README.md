@@ -51,3 +51,4 @@ TLS is terminated at the Kubernetes Ingress via secret `wisecow-tls`. A helper s
 
 - `scripts/monitor_health.sh`: monitors CPU, memory, disk (/), and process count; set thresholds via env vars (`CPU_THRESHOLD`, `MEM_THRESHOLD`, `DISK_THRESHOLD`, `PROC_THRESHOLD`), `INTERVAL` to loop, `LOG_FILE` to append logs.
 - `scripts/backup.sh <source_dir> <destination>`: rsync-based backup to local path or `user@host:/path`; env vars `LOG_FILE`, `RSYNC_OPTS` override defaults; exits non-zero on failure.
+# accuknox_assessment
