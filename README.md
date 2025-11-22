@@ -46,3 +46,8 @@ Required GitHub secrets:
 ## TLS
 
 TLS is terminated at the Kubernetes Ingress via secret `wisecow-tls`. A helper script (`scripts/create-tls-secret.sh`) generates a self-signed certificate for `wisecow.local` and applies it as a Kubernetes TLS secret. Provide real certificates in CI by setting `TLS_CERT`/`TLS_KEY` secrets.
+
+## Utility scripts
+
+- `scripts/monitor_health.sh`: monitors CPU, memory, disk (/), and process count; set thresholds via env vars (`CPU_THRESHOLD`, `MEM_THRESHOLD`, `DISK_THRESHOLD`, `PROC_THRESHOLD`), `INTERVAL` to loop, `LOG_FILE` to append logs.
+- `scripts/backup.sh <source_dir> <destination>`: rsync-based backup to local path or `user@host:/path`; env vars `LOG_FILE`, `RSYNC_OPTS` override defaults; exits non-zero on failure.
