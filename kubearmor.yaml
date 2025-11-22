@@ -1,0 +1,23 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: wisecow-security-policy
+  namespace: wisecow
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  action: Block
+  file:
+    matchPaths:
+    - path: /etc/passwd
+    - path: /etc/shadow
+  network:
+    matchProtocols:
+    - protocol: TCP
+      fromSource:
+      - path: /bin/bash
+  message: "Restrict sensitive file access and network capabilities"
+  tags:
+    - "ZeroTrust"
+    - "FileRestriction"
